@@ -31,7 +31,7 @@ const receivedMessage = (req,res)=>{
             if (err) throw err;
             console.log('File Success Updated');
           });
-        
+          console.log(message);
         res.send("EVENT_RECEIVED")
         
     }
