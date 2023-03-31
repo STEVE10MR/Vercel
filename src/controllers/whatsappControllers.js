@@ -4,13 +4,13 @@ const verifyToken = (req,res)=>{
             const token = req.query["hub.verify_token"]
             let challenge = req.query["hub.challenge"]
             if(challenge != null && token != null && token== accessToken){
-                res.send(challenges)
+                res.send(challenge)
             }
             else{
                 res.status(400).send()
             }
         }
-        catch(err){
+        catch(e){
             res.status(400).send()
         }
 }
