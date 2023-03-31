@@ -26,9 +26,11 @@ const receivedMessage = (req,res)=>{
         var value = changes["value"]
         var message = value["messages"]
         
-        //objLogger.log(req.body["entry"])
 
-        
+        fs.writeFile('logSuccess.txt', message, (err) => {
+            if (err) throw err;
+            console.log('File Success Updated');
+          });
         
         res.send("EVENT_RECEIVED")
         
