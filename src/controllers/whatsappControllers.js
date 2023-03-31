@@ -1,8 +1,9 @@
-const fs = require('fs')
-const console = require('console')
-const { Console } = console
+
 
 try {
+    const fs = require('fs')
+    const console = require('console')
+    const { Console } = console
     const output = fs.createWriteStream('./outputlog.txt');
     const error = fs.createWriteStream('./errorlog.txt');
     var objLogger   = new Console(output)
