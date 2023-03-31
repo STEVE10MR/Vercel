@@ -1,6 +1,6 @@
 
 const fs = require('fs')
-const cl = new console.Console(fs.createWriteStream('./log.txt'))
+
 
 
 const verifyToken = (req,res)=>{
