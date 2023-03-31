@@ -1,24 +1,4 @@
-
-
-try {
-    const fs = require('fs')
-    const console = require('console')
-    const { Console } = console
-
-    
-    const output = fs.createWriteStream('./outputlog.txt');
-    const error = fs.createWriteStream('./errorlog.txt');
-    /*
-    var objLogger   = new Console(output)
-    var objError   = new Console(error)
-    */
-    
-
-}
-catch {
-    console.error(new Error('Oops, some error.'))
-}
-
+const fs = require('fs')
 
 const verifyToken = (req,res)=>{
         try{
@@ -55,6 +35,12 @@ const receivedMessage = (req,res)=>{
     }
     catch(e){
         //objError.log("Error: " + e.message)
+
+        fs.writeFile('logError.txt', e.message, (err) => {
+            if (err) throw err;
+            console.log('File Errop Updated');
+          });
+
         res.send("EVENT_RECEIVED")
     }
 }
