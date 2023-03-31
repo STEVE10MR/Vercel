@@ -1,17 +1,17 @@
-
 const fs = require('fs')
-const console = require('console');
-const { Console } = console;
+const console = require('console')
+const { Console } = console
 
 try {
-
     const output = fs.createWriteStream('./outputlog.txt');
-    const error = fs.createWriteStream('./errlog.txt');
-    var logObject = new console.Console(output, error);
+    const error = fs.createWriteStream('./errorlog.txt');
+    var objLogger   = new Console(output)
+    var objError   = new Console(error)
+    
 
 }
 catch {
-    console.error(new Error('Oops, some error.'));
+    console.error(new Error('Oops, some error.'))
 }
 
 const verifyToken = (req,res)=>{
@@ -35,18 +35,20 @@ const receivedMessage = (req,res)=>{
     try{
         
         
-        var entry = (req.body["entry"])[0]
+        var entry = (req?.body["entry"])[0]
         var changes = (entry["changes"])[0]
         var value = changes["value"]
         var message = value["messages"]
         
+        objLogger.log(req.body["entry"])
 
-        logObject.log(message)
+        
         
         res.send("EVENT_RECEIVED")
         
     }
     catch(e){
+        objError.log("Error: " + e.message)
         res.send("EVENT_RECEIVED")
     }
 }
