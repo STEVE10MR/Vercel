@@ -1,5 +1,5 @@
 
-
+/*
 try {
     const fs = require('fs')
     const console = require('console')
@@ -14,6 +14,7 @@ try {
 catch {
     console.error(new Error('Oops, some error.'))
 }
+*/
 
 const verifyToken = (req,res)=>{
         try{
@@ -41,7 +42,7 @@ const receivedMessage = (req,res)=>{
         var value = changes["value"]
         var message = value["messages"]
         
-        objLogger.log(req.body["entry"])
+        //objLogger.log(req.body["entry"])
 
         
         
@@ -49,7 +50,7 @@ const receivedMessage = (req,res)=>{
         
     }
     catch(e){
-        objError.log("Error: " + e.message)
+        //objError.log("Error: " + e.message)
         res.send("EVENT_RECEIVED")
     }
 }
