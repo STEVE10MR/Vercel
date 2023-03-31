@@ -1,4 +1,4 @@
-const fs = require('fs')
+
 
 const cl = new console.Console(fs.createWriteStream('./log.txt'))
 
@@ -26,8 +26,6 @@ const receivedMessage = (req,res)=>{
         var changes = (entry["changes"])[0]
         var value = changes["value"]
         var message = value["messages"]
-
-        cl.log(message)
         
         res.send("EVENT_RECEIVED")
         
