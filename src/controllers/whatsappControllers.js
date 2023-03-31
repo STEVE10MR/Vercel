@@ -21,7 +21,7 @@ const receivedMessage = (req,res)=>{
     try{
         
         
-        var entry = (req?.body["entry"])[0]
+        var entry = (req.body["entry"])[0]
         var changes = (entry["changes"])[0]
         var value = changes["value"]
         var message = value["messages"]
@@ -34,7 +34,7 @@ const receivedMessage = (req,res)=>{
           });
         console.log(message);
         */
-        res.send("EVENT_RECEIVED")
+        res.send(message)
         
     }
     catch(e){
