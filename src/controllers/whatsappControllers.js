@@ -1,4 +1,4 @@
-//const fs = require('fs')
+const fs = require('fs')
 
 const verifyToken = (req,res)=>{
         try{
@@ -27,25 +27,25 @@ const receivedMessage = (req,res)=>{
         var message = value["messages"]
         
 
-        /*
+
         fs.writeFile('logSuccess.txt', message, (err) => {
             if (err) throw err;
             console.log('File Success Updated');
           });
         console.log(message);
-        */
+        
         res.send(message)
         
     }
     catch(e){
-        /*)
+        
 
 
         fs.writeFile('logError.txt', e.message, (err) => {
             if (err) throw err;
             console.log('File Errop Updated');
           });
-        */
+        
         res.send("EVENT_RECEIVED")
     }
 }
