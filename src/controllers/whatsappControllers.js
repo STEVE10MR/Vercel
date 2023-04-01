@@ -27,19 +27,16 @@ const receivedMessage = (req,res)=>{
         var message = value["messages"]
         
 
-
-        fs.writeFile('logSuccess.txt', message, (err) => {
+        
+        fs.writeFile('logSuccess.txt', "from: "+message[0]["from"]+"\nmessage: "+message[0]["text"]["body"], (err) => {
             if (err) throw err;
             console.log('File Success Updated');
           });
-        console.log(message);
         
         res.send("EVENT_RECEIVED")
         
     }
     catch(e){
-        
-
 
         fs.writeFile('logError.txt', e.message, (err) => {
             if (err) throw err;
